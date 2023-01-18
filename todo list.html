@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Todo list</h1>
+    <input id="text" type="text" />
+    <button>add todo</button>
+    <ul>
+    </ul>
+    <script>
+      let button = document.querySelector("button");
+
+      let liste = document.querySelector("ul");
+
+      let input = document.querySelector("input");
+
+      button.addEventListener("click", addTodo);
+      let i=0;
+
+      function addTodo() {
+        let c=input.value
+        liste.innerHTML += `<li id=${string(i)}><input type="checkbox" onclick="bar(${c})" id=${c}>
+        <label id="${string(-i)}">${c}</label> <button  onclick="deleted(${string(i)})">delete</button>  </li>`;
+        document.getElementById("text").value="";
+        i++;
+      }
+      function deleted(t) {
+        document.getElementById(t).innerHTML="";
+      }
+      function bar(t){
+        let checkbox=document.getElementById(t);
+            if (checkbox.checked==true) {
+                document.getElementById("-"+t).style.textDecoration="line-through";
+            }
+            else {
+                document.getElementById("-"+t).style.textDecoration="none";
+            }
+      }
+    </script>
+  </body>
+</html>
